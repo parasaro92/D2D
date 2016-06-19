@@ -1,5 +1,6 @@
+<br><br>
 <div role="tabpanel">
-  <ul class="nav nav-tabs" role="tablist">
+  <ul class="nav nav-pills nav-justified" role="tablist">
     <li role="presentation"
       ng-repeat="tab in tabset.tabs"
       ng-class="{'acitve': tab.active}">
@@ -9,7 +10,7 @@
         ng-click="tabset.select(tab)">{{tab.heading}}</a>
     </li>
   </ul>
-
+  <br><br>
   <ng-transclude>
   </ng-transclude>
 </div>

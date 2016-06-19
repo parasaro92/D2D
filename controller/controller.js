@@ -27,13 +27,19 @@ myApp.directive('tabset', function() {
   return {
     restrict: 'E',
     transclude: true,
-    scope: { },
+    scope: {
+     // type: '@' 
+    },
     templateUrl: 'views/tabset.html',
     bindToController: true,
     controllerAs: 'tabset',
     controller: function() {
       var vm = this
       vm.tabs = []
+
+      // vm.classes = {}
+      // if(vm.type === 'pills') { vm.classes['nav-pills'] = true}
+      //   else { vm.classes['nav-tabs'] = true }
 
       vm.addTab = function addTab(tab){
 
