@@ -11,7 +11,7 @@ myApp.directive('tab', function() {
   return {
     restrict: 'E',
     transclude: true,
-    template: '<h2>Hello world!</h2> <div role="tabpanel" ng-show="active" ng-transclude></div>',
+    template: '<div role="tabpanel" ng-show="active" ng-transclude></div>',
     require: '^tabset',
     scope: { 
       heading: '@'
@@ -42,6 +42,16 @@ myApp.directive('tabset', function() {
         if(vm.tabs.length === 1){
           tab.active = true
         }
+      }
+
+      vm.select = function(selectedTab) {
+        angular.forEach(vm.tabs, function(tab) {
+          if(tab.active && tab !== selectedTab) {
+            tab.active = false;
+          }
+        })
+
+        selectedTab.active = true;
       }
     }
   }
